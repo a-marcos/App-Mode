@@ -14,9 +14,21 @@ app.get('/', (req, res) => {
 app.post('/cadastro', (req, res) => {
   const { nome, email, senha } = req.body;
   // Aqui você pode tratar os dados, como salvá-los em um banco de dados, por exemplo
+
+  // Simulação do armazenamento em um "banco de dados" em memória
+  const novoUsuario = {
+    nome,
+    email,
+    senha,
+  };
+
   console.log(`Novo cadastro: Nome - ${nome}, Email - ${email}, Senha - ${senha}`);
   // Pode redirecionar o usuário para outra página após o cadastro ser processado
   res.redirect('/obrigado');
+});
+
+app.get('/obrigado', (req, res) => {
+  res.send('Obrigado por se cadastrar!');
 });
 
 app.listen(port, () => {
